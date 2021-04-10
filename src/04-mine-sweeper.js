@@ -21,8 +21,154 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new Error('Not implemented');
+function minesweeper(matrix) {
+  const returnArr = [];
+
+  matrix.forEach((element) => {
+    returnArr.push(element.slice());
+  });
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      returnArr[i][j] = 0;
+
+      if (i === 0) {
+        if (j === 0) {
+          if (matrix[i][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+        } else if (j === matrix[0].length - 1) {
+          if (matrix[i][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+        } else {
+          if (matrix[i][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i + 1][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+        }
+      } else if (i === matrix.length - 1) {
+        if (j === 0) {
+          if (matrix[i][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+        } else if (j === matrix[0].length - 1) {
+          if (matrix[i][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+        } else {
+          if (matrix[i][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j - 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i - 1][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+          if (matrix[i][j + 1] === true) {
+            returnArr[i][j]++;
+          }
+        }
+      } else if (j === 0) {
+        if (matrix[i - 1][j] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i - 1][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j] === true) {
+          returnArr[i][j]++;
+        }
+      } else if (j === matrix[0].length - 1) {
+        if (matrix[i - 1][j] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i - 1][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j] === true) {
+          returnArr[i][j]++;
+        }
+      } else {
+        if (matrix[i - 1][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i - 1][j] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i - 1][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j - 1] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j] === true) {
+          returnArr[i][j]++;
+        }
+        if (matrix[i + 1][j + 1] === true) {
+          returnArr[i][j]++;
+        }
+      }
+    }
+  }
+  return returnArr;
 }
 
 module.exports = minesweeper;
